@@ -10,6 +10,8 @@
 @import "./base/_index";
 
 // components - search form, hamburger button etc 
+@import "./components/css-loader";
+@import "./components/svg-loader";
 @import "./components/search-form";
  
 //layout - to level layout of your website

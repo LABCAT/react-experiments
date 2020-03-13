@@ -1,9 +1,10 @@
 import React from 'react';
-import Home from './page-types/Home';
+import SVGLoader from './components/SVGLoader';
+import CSSLoader from './components/CSSLoader';
 
 function Main() {
   return (
-    <Home/>
+    <SVGLoader/>
   );
 }
 
