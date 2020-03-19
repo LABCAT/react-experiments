@@ -1,4 +1,44 @@
-$radius:200px;
+
+$radius:1200px;
+$bgColour: black;
+$baseSize: 50px;
+$lineWidth: $baseSize/10;
+$gradient: green, yellow, orange, red,purple, blue, white;
+$gradient: hsl(180, 100%, 50%);
+
+
+#css-loader {
+  transform: rotate(270deg);
+}
+
+@for $i from 1 through 50{
+  $gradient: $gradient, hsl(180, 100%, percentage($i / 100));
+}
+
+
+@for $i from 180 through 540{
+  $gradient: $gradient, hsl($i, 100%, 50%);
+}
+
+@for $i from 50 through 100{
+  $gradient: $gradient, hsl(540, 100%, percentage($i / 100));
+}
+
+$gradient: black, green, yellow, orange, red,purple, blue, white;
+$gradient: black, green, yellow, orange, red,purple, blue, white;
+
+$gradient: 
+    black, 
+    #00FFFF,
+    #0CDBF5, 
+    #2592E1, 
+    #3564D5, 
+    #3B52D0, 
+    #3341AE, 
+    #1D1657, 
+    #1B114D
+;
+
 b { 
   position:absolute;
   left:50%;
@@ -6,42 +46,43 @@ b {
   &:before {
     content:""; 
     display:block; 
-    padding:2px; 
+    padding:$lineWidth; 
     padding-bottom:0; 
     box-sizing:border-box;
     border-top-left-radius:$radius;
     border-top-right-radius:$radius;
-    background:linear-gradient(to right, #fff, #fff),linear-gradient(to right, #077df8, #74baff);
+    background:linear-gradient(to right, $bgColour, $bgColour),linear-gradient(to right,black, $gradient);
     background-clip:content-box,padding-box;
   }
   &:after {
     content:""; 
     display:block; 
-    padding:2px; 
+    padding:$lineWidth; 
     padding-top:0; 
     box-sizing:border-box;
     border-bottom-left-radius:$radius;
     border-bottom-right-radius:$radius;
-    background:linear-gradient(to right, #fff, #fff),linear-gradient(to right, #fff, #74baff);
+    background:linear-gradient(to right, $bgColour, $bgColour),linear-gradient(to right, black, $gradient);
     background-clip:content-box,padding-box;
   }
 }
-@for $i from 1 through 40{
+@for $i from 1 through 20{
   b:nth-of-type(#{$i}){
-    width:10px *$i;
-    height:10px *$i;
-    margin-left: -(10px *$i)/2;
-    margin-top: -(10px *$i)/2;
+    width:$baseSize * $i;
+    height:$baseSize * $i;
+    margin-left: -($baseSize * $i)/2;
+    margin-top: -($baseSize * $i)/2;
     z-index:-1 *$i;
-    animation: rotate 8s ease-in-out -0.1s *$i infinite;
+    animation: rotate 4s ease-in-out -0.1s *$i infinite;
     &:before,
     &:after{
-      width:10px *$i;
-      height:5px *$i; 
+      width:$baseSize * $i;
+      height:$baseSize/2 *$i; 
     }
   }
-  
 }
+
+
 @keyframes rotate{
   25%{
     transform: rotate(360deg);
@@ -55,6 +96,9 @@ b {
   }
 }
 
-.App {
-  min-height: 100vh;
+#css-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999999;
 }

@@ -1,3 +1,22 @@
+
+$gradient: radial-gradient(40.68% 54.24% at 50% 54.11%, #1B114D 0%, #1D1657 3%, #3341AE 34%, #3B52D0 48%, #3564D5 55%, #2592E1 70%, #0CDBF5 90%, #00FFFF 100%);;
+$gradient: linear-gradient(
+    40.68% 54.24% at 50% 54.11%,
+    #00FFFF 0%, 
+    #0CDBF5 3%, 
+    #2592E1 34%, 
+    #3564D5 48%, 
+    #3B52D0 55%, 
+    #3341AE 70%, 
+    #1D1657 90%, 
+    #1B114D 100%
+);
+$gradient: black;
+
 #main {
+    position: relative;
     min-height: 100vh;
+    background: $gradient;
+    overflow: hidden;
 }
+

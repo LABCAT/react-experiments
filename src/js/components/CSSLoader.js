@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react'
 
-function CSSLoader() {
-    return (
-        <div id="css-loader">
-            <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
-        </div>
-    );
+class CSSLoader extends Component {
+    createCircles = () => {
+        let circles = []
+
+        for (let i = 1; i <= 20; i++) {
+            circles.push(
+                <b></b>
+            );
+        }
+        return circles;
+    }
+
+    render() {
+        return (
+            <div id="css-loader">
+                {this.createCircles()}
+            </div>
+        );
+        }
 }
 
 export default CSSLoader;

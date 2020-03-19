@@ -4,7 +4,7 @@ import CSSLoader from './components/CSSLoader';
 
 function Main() {
   return (
-    <SVGLoader/>
+    <CSSLoader/>
   );
 }
 
