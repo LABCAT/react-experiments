@@ -1,0 +1,44 @@
+.creative-coding {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include media(min-md){
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    &-project {
+        position: relative;
+        transition: all 1s;
+        color: white;
+        text-align: center;
+
+        &.loaded {
+            color: blue;
+            
+            .overlay {
+                background-color: rgba(#ffffff, 0.5);
+            }
+        }
+    }
+
+    h2 {
+        padding: 0 20px;
+    }
+
+
+    .bg-image {
+        padding-bottom: 56.25%;
+        background-size: cover;
+        background-position: center center;
+        opacity: 0;
+        transition: opacity 1.5s;
+
+        &.loaded {
+            opacity: 1;
+        }
+
+        img {
+            display: none;
+        }
+    }
+}
