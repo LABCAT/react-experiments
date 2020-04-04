@@ -1,14 +1,33 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 
-function Navbar() {
-    return (
-        <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
-        </nav>
-    )
+class Navbar extends Component {
+
+    render() {
+        const { links } = this.props;
+
+        if (!links.length) {
+            return (null);
+        }
+
+        let navItems =
+            <React.Fragment>
+                {
+                    links.map(
+                        link => (
+                            <Link to={link.slug} key={link.key}>
+                                {link.title.rendered}
+                            </Link>
+                        )
+                    )
+                }
+            </React.Fragment>
+        return (
+            <nav>
+                {navItems}
+            </nav>
+        )
+    }
 }
 
 export default Navbar;
