@@ -96,11 +96,17 @@ class Main extends Component {
       CreativeCodingProjectsHolder: CreativeCodingProjectsHolder,
       AudioProjectsHolder: AudioProjectsProjectHolder
     };
+    let pages = [];
     let routes = '';
 
     if (this.state.posts.length) {
+      pages = this.state.posts.sort(
+        function (a, b) {
+          return a.menu_order - b.menu_order;
+        }
+      );
       routes =
-            this.state.posts.map(
+        pages.map(
               post => (
                 <Route 
                   path={`/${post.slug}`}
@@ -111,13 +117,12 @@ class Main extends Component {
             );
     }
     
-    console.log(this.state.posts);
     
 
     return (
       <main>
         <Navbar 
-          links={this.state.posts}
+          links={pages}
         />
         <Switch>
           {routes}
