@@ -110,14 +110,15 @@ class Main extends Component {
         pages.map(
               post => (
                 <Route 
-                  path={`/${post.slug === 'home' ? '' : post.slug}`}
-                  component={components[post.reactComponent]} 
+                  exact path={`/${post.slug === 'home' ? '' : post.slug}`}
+                  render={(props) => React.createElement(components[post.reactComponent], post)}
                   key={post.key} 
                 />
               )
             );
     }
     
+    console.log(routes);
     
 
     return (
