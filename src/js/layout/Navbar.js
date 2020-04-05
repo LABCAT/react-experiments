@@ -15,7 +15,7 @@ class Navbar extends Component {
                 {
                     links.map(
                         link => (
-                            <Link to={link.slug} key={link.key}>
+                            <Link to={link.slug === 'home' ? '' : link.slug} key={link.key}>
                                 {link.title.rendered}
                             </Link>
                         )

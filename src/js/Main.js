@@ -105,11 +105,12 @@ class Main extends Component {
           return a.menu_order - b.menu_order;
         }
       );
+      
       routes =
         pages.map(
               post => (
                 <Route 
-                  path={`/${post.slug}`}
+                  path={`/${post.slug === 'home' ? '' : post.slug}`}
                   component={components[post.reactComponent]} 
                   key={post.key} 
                 />
